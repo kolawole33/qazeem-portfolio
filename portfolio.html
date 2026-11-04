@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Official portfolio of Olowookere Qazeem Kolawole, Web Developer and Technical Design enthusiast.">
+    <meta name="author" content="Olowookere Qazeem Kolawole">
+    <meta name="theme-color" content="#101010">
+
+    <title>Qazeem Kolawole | Web Developer & Technical Design</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <span>QK<span class="orange">.</span></span>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+
+            <a href="#home" class="logo">
+                QK<span>.</span>
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kolawoleadedayo33%40gmail.com"
+                   class="nav-contact"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Let's Talk <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Switch colour theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <div class="availability">
+                        <span class="availability-dot"></span>
+                        Open to professional opportunities
+                    </div>
+
+                    <p class="hero-intro">HELLO, I'M</p>
+
+                    <h1>
+                        Olowookere<br>
+                        Qazeem <span class="orange">Kolawole.</span>
+                    </h1>
+
+                    <h2 class="hero-role">
+                        I'm a <span id="typingText">Web Developer</span><span class="typing-cursor">|</span>
+                    </h2>
+
+                    <p class="hero-description">
+                        I build responsive websites and practical digital solutions,
+                        combining creativity, technology and problem-solving to
+                        create meaningful user experiences.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Work <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <span>FIND ME ON</span>
+
+                        <a href="https://github.com/kolawole33"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/qazeem-olowookere-408b03428/"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kolawoleadedayo33%40gmail.com"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="hero-image-area">
+
+                    <div class="hero-image-decoration"></div>
+
+                    <div class="hero-image">
+                        <img src="images/qazman-profile.jpg"
+                             alt="Qazeem's Profile Picture">
+                    </div>
+
+                    <div class="floating-card card-one">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <strong>Web Development</strong>
+                            <span>Creative digital solutions</span>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <div>
+                            <strong>Technical Design</strong>
+                            <span>AutoCAD 2D Drafting</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-bottom container">
+                <span>SCROLL TO DISCOVER</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">GET TO KNOW ME</span>
+                    <h2>About <span class="orange">Me.</span></h2>
+                    <p>A little introduction to who I am and what I do.</p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+                        <img src="images/qazman-profile.jpg"
+                             alt="Qazeem Kolawole portrait">
+                        <div class="about-image-caption">
+                            <span>CREATIVITY</span>
+                            <span class="orange">MEETS TECHNOLOGY</span>
+                        </div>
+                    </div>
+
+                    <div class="about-content">
+                        <h3>
+                            Building digital experiences with
+                            <span class="orange">purpose.</span>
+                        </h3>
+
+                        <p>
+                            I am Olowookere Qazeem Kolawole, a Zoology graduate
+                            from the Federal University of Agriculture, Abeokuta,
+                            with a strong interest in web development, information
+                            technology and technical design.
+                        </p>
+
+                        <p>
+                            I have practical experience creating responsive websites
+                            using HTML, CSS and JavaScript, with working knowledge
+                            of Angular and Apache Cordova. I also have experience
+                            in 2D technical drafting using AutoCAD.
+                        </p>
+
+                        <p>
+                            I enjoy learning new technologies, solving practical
+                            problems and turning ideas into useful digital solutions.
+                            I am continually developing my skills and seeking
+                            opportunities to contribute to meaningful projects.
+                        </p>
+
+                        <div class="about-details">
+                            <div>
+                                <span>Name</span>
+                                <strong>Qazeem Kolawole</strong>
+                            </div>
+
+                            <div>
+                                <span>Location</span>
+                                <strong>Lagos, Nigeria</strong>
+                            </div>
+
+                            <div>
+                                <span>Degree</span>
+                                <strong>B.Sc. Zoology</strong>
+                            </div>
+
+                            <div>
+                                <span>Professional Focus</span>
+                                <strong>Web Development</strong>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="btn btn-primary">
+                            Let's Work Together
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">WHAT I WORK WITH</span>
+                    <h2>My Technical <span class="orange">Skills.</span></h2>
+                    <p>Technologies and tools I use to bring ideas to life.</p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3>Front-End Development</h3>
+                        <p>Building and styling responsive web interfaces.</p>
+                        <div class="skill-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript (Basic)</span>
+                            <span>Angular</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3>Application Development</h3>
+                        <p>Working with web technologies in mobile application environments.</p>
+                        <div class="skill-tags">
+                            <span>Apache Cordova</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <h3>Technical Design</h3>
+                        <p>Creating 2D technical drawings and basic architectural layouts.</p>
+                        <div class="skill-tags">
+                            <span>AutoCAD</span>
+                            <span>2D Drafting</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <h3>Development Tools</h3>
+                        <p>Managing code and organising development work.</p>
+                        <div class="skill-tags">
+                            <span>Git</span>
+                            <span>GitHub</span>
+                            <span>Microsoft Office</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">MY RECENT WORK</span>
+                    <h2>Featured <span class="orange">Projects.</span></h2>
+                    <p>A selection of projects that demonstrate my practical experience.</p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- IGSL Corporate Website -->
+                    <article class="project-card">
+                        <div class="project-image project-igsl">
+                            <img src="images/igsl-project.jpg"
+                                 alt="IGSL Corporate Website preview">
+                        </div>
+
+                        <div class="project-content">
+                            <span class="project-category">WEB DEVELOPMENT</span>
+                            <h3>IGSL Corporate Website</h3>
+                            <p>
+                                Designed and developed a multi-page corporate website,
+                                working on responsive layouts, navigation and the
+                                presentation of company services and affiliated ventures.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <a href="https://github.com/kolawole33/IGSL-Website"
+                               target="_blank" rel="noopener noreferrer"
+                               class="project-link">
+                                View Source Code <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Personal CV Portfolio App -->
+                    <article class="project-card">
+                        <div class="project-image project-app">
+                            <img src="images/cv-app-project.jpg"
+                                 alt="Personal CV Portfolio App preview">
+                        </div>
+
+                        <div class="project-content">
+                            <span class="project-category">APPLICATION DEVELOPMENT</span>
+                            <h3>Personal CV Portfolio App</h3>
+                            <p>
+                                Built a personal CV and portfolio application using
+                                Angular and Apache Cordova, organising portfolio
+                                content for a mobile application environment.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>Angular</span>
+                                <span>Cordova</span>
+                            </div>
+
+                            <span class="project-status">Personal Project</span>
+                        </div>
+                    </article>
+
+                    <!-- AutoCAD Building Design -->
+                    <article class="project-card">
+                        <div class="project-image project-autocad">
+                            <img src="images/autocad-building-design.jpg"
+                                 alt="AutoCAD 2D building floor plan">
+                        </div>
+
+                        <div class="project-content">
+                            <span class="project-category">TECHNICAL DESIGN</span>
+                            <h3>AutoCAD Building Design</h3>
+                            <p>
+                                Created 2D architectural drawings, including floor
+                                plans and layouts, applying basic architectural
+                                principles, dimensions and space planning.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>AutoCAD</span>
+                                <span>2D Drafting</span>
+                            </div>
+
+                            <span class="project-status">Design Project</span>
+                        </div>
+                    </article>
+
+                    <!-- Personal Portfolio Website -->
+                    <article class="project-card">
+                        <div class="project-image project-portfolio">
+                            <img src="images/portfolio-project.jpg"
+                                 alt="Personal Portfolio Website preview">
+                        </div>
+
+                        <div class="project-content">
+                            <span class="project-category">WEB DEVELOPMENT</span>
+                            <h3>Personal Portfolio Website</h3>
+                            <p>
+                                Designed and developed a personal website using
+                                HTML and CSS, with basic JavaScript interactivity
+                                and structured page navigation.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <span class="project-status">Portfolio Project</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="projects-footer">
+                    <a href="https://github.com/kolawole33"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn btn-outline">
+                        Explore My GitHub
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience section" id="experience">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">MY PROFESSIONAL JOURNEY</span>
+                    <h2>Experience & <span class="orange">Education.</span></h2>
+                    <p>My professional development and academic background.</p>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-type">PROFESSIONAL EXPERIENCE</span>
+                            <h3>Web Design Intern</h3>
+                            <h4>Tech Box</h4>
+                            <p>
+                                Developing practical web design and front-end
+                                development skills through training and project work.
+                            </p>
+                            <span class="timeline-date">Internship</span>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-type">EDUCATION</span>
+                            <h3>Bachelor of Science (B.Sc.) in Zoology</h3>
+                            <h4>Federal University of Agriculture, Abeokuta (FUNAAB)</h4>
+                            <p>
+                                Undergraduate education with a foundation in
+                                scientific learning, research and analytical thinking.
+                            </p>
+                            <span class="timeline-date">2019 – 2024</span>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-type">CERTIFICATION</span>
+                            <h3>GIZ Web Design Certificate</h3>
+                            <h4>Web Design Training</h4>
+                            <p>
+                                Certificate in web design.
+                            </p>
+                            <span class="timeline-date">2022</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">LET'S CONNECT</span>
+                    <h2>Let's Work <span class="orange">Together.</span></h2>
+                    <p>Have an opportunity, project or idea? I'd love to hear from you.</p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <div class="contact-info">
+                        <h3>Let's start a conversation.</h3>
+
+                        <p>
+                            I'm open to professional opportunities, collaborations
+                            and conversations around web development and technology.
+                        </p>
+
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kolawoleadedayo33%40gmail.com"
+                           target="_blank" rel="noopener noreferrer"
+                           class="contact-item">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <span>
+                                <small>EMAIL ME</small>
+                                <strong>kolawoleadedayo33@gmail.com</strong>
+                            </span>
+                        </a>
+
+                        <a href="tel:+2348150350932" class="contact-item">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <span>
+                                <small>CALL ME</small>
+                                <strong>+234 815 035 0932</strong>
+                            </span>
+                        </a>
+
+                        <div class="contact-item">
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span>
+                                <small>LOCATION</small>
+                                <strong>Lagos State, Nigeria</strong>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form Connected to FormSubmit -->
+                    <form class="contact-form"
+                          id="contactForm"
+                          action="https://formsubmit.co/kolawoleadedayo33@gmail.com"
+                          method="POST">
+
+                        <!-- FormSubmit Settings -->
+                        <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="true">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name"
+                                       placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email"
+                                       placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject"
+                                   placeholder="What is this about?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5"
+                                      placeholder="Write your message here..."
+                                      required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Send Message <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+
+                        <p class="form-note" id="formNote">
+                            Your message will be sent directly to my email.
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <a href="#home" class="logo footer-logo">
+                QK<span>.</span>
+            </a>
+
+            <p>
+                Designed & developed by
+                <strong>Olowookere Qazeem Kolawole</strong>.
+            </p>
+
+            <div class="footer-socials">
+                <a href="https://github.com/kolawole33"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/qazeem-olowookere-408b03428/"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kolawoleadedayo33%40gmail.com"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <span class="copyright">
+                &copy; <span id="currentYear">2026</span> Qazeem Kolawole. All rights reserved.
+            </span>
+
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
