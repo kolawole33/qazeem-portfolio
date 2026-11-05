@@ -248,29 +248,112 @@ document.addEventListener("DOMContentLoaded", () => {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    // 10. CONTACT FORM - FORMSUBMIT
+    // 10. CONTACT FORM - FORMSUBMIT AJAX
     const contactForm = document.getElementById("contactForm");
     const formNote = document.getElementById("formNote");
 
-    contactForm?.addEventListener("submit", () => {
+    contactForm?.addEventListener("submit", async (event) => {
 
-        // Allow the browser to submit the form to FormSubmit.
-        // Do not use event.preventDefault() here.
-
-        if (formNote) {
-            formNote.textContent = "Sending your message...";
-        }
+        // Keep the visitor on the portfolio page.
+        event.preventDefault();
 
         const submitButton = contactForm.querySelector(
             'button[type="submit"]'
         );
 
+        const originalButtonHTML = submitButton
+            ? submitButton.innerHTML
+            : "";
+
+        // Show sending message.
+        if (formNote) {
+            formNote.textContent = "Sending your message...";
+            formNote.style.color = "var(--text-muted)";
+        }
+
+        // Prevent multiple submissions.
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.innerHTML =
                 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
         }
 
+        try {
+            // Collect all form fields.
+            const formData = new FormData(contactForm);
+
+            const formObject = Object.fromEntries(
+                formData.entries()
+            );
+
+            // Use FormSubmit's AJAX endpoint.
+            const ajaxURL = contactForm.action.replace(
+                "https://formsubmit.co/",
+                "https://formsubmit.co/ajax/"
+            );
+
+            const response = await fetch(ajaxURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(formObject)
+            });
+
+            const result = await response.json();
+
+            // Confirm that FormSubmit accepted the submission.
+            if (
+                !response.ok ||
+                !result ||
+                !(
+                    result.success === true ||
+                    result.success === "true"
+                )
+            ) {
+                throw new Error(
+                    result?.message || "Form submission failed."
+                );
+            }
+
+            // SUCCESS MESSAGE
+            if (formNote) {
+                formNote.textContent =
+                    "Your message has been sent successfully!";
+
+                formNote.style.color = "#39c978";
+            }
+
+            // Restore the original button.
+            if (submitButton) {
+                submitButton.innerHTML = originalButtonHTML;
+            }
+
+        } catch (error) {
+
+            // FAILURE MESSAGE
+            console.error("Contact form error:", error);
+
+            if (formNote) {
+                formNote.textContent =
+                    "Sorry, your message could not be sent. Please try again.";
+
+                formNote.style.color = "#e05b5b";
+            }
+
+            // Allow the visitor to try again.
+            if (submitButton) {
+                submitButton.innerHTML = originalButtonHTML;
+            }
+
+        } finally {
+
+            // Re-enable the button.
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
     });
 
 });
