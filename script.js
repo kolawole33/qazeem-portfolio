@@ -246,13 +246,13 @@ document.addEventListener("DOMContentLoaded", () => {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    // 10. CONTACT FORM - NORMAL FORMSUBMIT SUBMISSION
+    // 10. CONTACT FORM - NORMAL FORMSPREE SUBMISSION
     const contactForm = document.getElementById("contactForm");
     const formNote = document.getElementById("formNote");
 
     contactForm?.addEventListener("submit", () => {
 
-        // Allow the browser to submit directly to FormSubmit.
+        // Allow the browser to submit directly to Formspree.
         // Do not use preventDefault() or fetch() here.
 
         const submitButton = contactForm.querySelector(
