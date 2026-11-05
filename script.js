@@ -246,31 +246,207 @@ document.addEventListener("DOMContentLoaded", () => {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    // 10. CONTACT FORM - NORMAL FORMSPREE SUBMISSION
+    // 10. CONTACT FORM - AJAX FORMSPREE SUBMISSION
     const contactForm = document.getElementById("contactForm");
     const formNote = document.getElementById("formNote");
 
-    contactForm?.addEventListener("submit", () => {
+    const submitButton = contactForm?.querySelector(
+        'button[type="submit"]'
+    );
 
-        // Allow the browser to submit directly to Formspree.
-        // Do not use preventDefault() or fetch() here.
+    const originalButtonHTML = submitButton?.innerHTML || "";
+    const originalFormNote = formNote?.textContent || "";
 
-        const submitButton = contactForm.querySelector(
-            'button[type="submit"]'
-        );
+    let toastTimer;
 
-        if (formNote) {
-            formNote.textContent = "Sending your message...";
-            formNote.style.color = "var(--text-muted)";
+    // CUSTOM NOTIFICATION
+    function showFormToast(type, title, message) {
+        let toast = document.getElementById("formToast");
+
+        if (!toast) {
+            toast = document.createElement("div");
+            toast.id = "formToast";
+
+            toast.style.cssText = `
+                position: fixed;
+                top: 24px;
+                right: 24px;
+                z-index: 99999;
+                width: min(380px, calc(100vw - 32px));
+                padding: 17px;
+                display: flex;
+                align-items: flex-start;
+                gap: 13px;
+                background: #151515;
+                color: #ffffff;
+                border: 1px solid rgba(255,255,255,0.12);
+                border-left: 4px solid #ef5f01;
+                border-radius: 12px;
+                box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+                opacity: 0;
+                transform: translateY(-12px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                font-family: 'DM Sans', sans-serif;
+            `;
+
+            document.body.appendChild(toast);
         }
 
-        // Prevent multiple clicks while the browser submits.
+        clearTimeout(toastTimer);
+
+        toast.innerHTML = "";
+
+        const icon = document.createElement("i");
+
+        icon.className = type === "success"
+            ? "fa-solid fa-circle-check"
+            : "fa-solid fa-circle-exclamation";
+
+        icon.style.cssText = `
+            font-size: 23px;
+            margin-top: 2px;
+            color: ${type === "success" ? "#22c55e" : "#ef5f01"};
+        `;
+
+        const content = document.createElement("div");
+        content.style.flex = "1";
+
+        const heading = document.createElement("strong");
+        heading.textContent = title;
+
+        heading.style.cssText = `
+            display: block;
+            font-size: 15px;
+            margin-bottom: 5px;
+        `;
+
+        const description = document.createElement("p");
+        description.textContent = message;
+
+        description.style.cssText = `
+            margin: 0;
+            color: #c4c4c4;
+            font-size: 13px;
+            line-height: 1.5;
+        `;
+
+        const closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.innerHTML = "&times;";
+        closeButton.setAttribute("aria-label", "Close notification");
+
+        closeButton.style.cssText = `
+            background: transparent;
+            border: none;
+            color: #aaaaaa;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0 3px;
+        `;
+
+        closeButton.addEventListener("click", () => {
+            clearTimeout(toastTimer);
+            toast.style.opacity = "0";
+            toast.style.transform = "translateY(-12px)";
+        });
+
+        content.append(heading, description);
+        toast.append(icon, content, closeButton);
+
+        toast.setAttribute(
+            "role",
+            type === "success" ? "status" : "alert"
+        );
+
+        toast.style.opacity = "1";
+        toast.style.transform = "translateY(0)";
+
+        toastTimer = setTimeout(() => {
+            toast.style.opacity = "0";
+            toast.style.transform = "translateY(-12px)";
+        }, 5000);
+    }
+
+    // SUBMIT FORM WITHOUT LEAVING THE HOMEPAGE
+    contactForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.innerHTML =
                 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
         }
 
+        if (formNote) {
+            formNote.textContent = "Sending your message...";
+        }
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm),
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            let result = {};
+
+            try {
+                result = await response.json();
+            } catch (error) {
+                result = {};
+            }
+
+            if (response.ok) {
+                contactForm.reset();
+
+                showFormToast(
+                    "success",
+                    "Message sent successfully!",
+                    "Thank you for reaching out. I'll get back to you soon."
+                );
+
+                if (formNote) {
+                    formNote.textContent = originalFormNote;
+                }
+
+            } else {
+                const errorMessage = result.errors
+                    ?.map(error => error.message)
+                    .join(", ") ||
+                    "Your message could not be sent. Please try again.";
+
+                showFormToast(
+                    "error",
+                    "Message not sent",
+                    errorMessage
+                );
+
+                if (formNote) {
+                    formNote.textContent =
+                        "Please try sending your message again.";
+                }
+            }
+
+        } catch (error) {
+            showFormToast(
+                "error",
+                "Connection error",
+                "Please check your internet connection and try again."
+            );
+
+            if (formNote) {
+                formNote.textContent =
+                    "There was a problem sending your message.";
+            }
+
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonHTML;
+            }
+        }
     });
 
 });
